@@ -1,7 +1,7 @@
 {
   "name": "Taiwan Food Discovery Map",
   "short_name": "Taiwan Food",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#FDFCFB",
   "theme_color": "#2C3E50",
