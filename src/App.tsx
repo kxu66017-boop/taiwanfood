@@ -661,6 +661,11 @@ function AccountPage({ favorites, recommendationsCount, onSelectFood, onToggleFa
           <p className="text-slate-400">
             目前已有 <span className="font-bold text-taiwan-red">{favorites.length + recommendationsCount}</span> 則紀錄
           </p>
+          {process.env.taiwanfood && (
+            <div className="mt-2 text-[10px] font-mono text-slate-300 uppercase tracking-widest bg-stone-50 px-2 py-1 rounded inline-block">
+              Key: {process.env.taiwanfood.slice(0, 3)}... (TaiwanFood Active)
+            </div>
+          )}
         </div>
       </div>
 

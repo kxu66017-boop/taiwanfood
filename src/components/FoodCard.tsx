@@ -1,3 +1,4 @@
+import React from 'react';
 import { Food } from '../types';
 import { Heart, Star } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -8,6 +9,7 @@ interface FoodCardProps {
   isFavorite: boolean;
   onToggleFavorite: (id: number) => void;
   onClick: (id: number) => void;
+  key?: React.Key;
 }
 
 export default function FoodCard({ food, isFavorite, onToggleFavorite, onClick }: FoodCardProps) {
