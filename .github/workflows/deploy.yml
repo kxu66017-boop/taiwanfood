@@ -3,10 +3,16 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # 確保這與你的主分支名稱一致
+      - main
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build-and-deploy:
@@ -15,9 +21,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
       - name: Install and Build
         run: |
-          npm install
+          npm ci
           npm run build
 
       - name: Deploy
@@ -25,4 +37,4 @@ jobs:
         with:
           folder: dist
           branch: gh-pages
-          clean: true # 確保每次部署都清除舊檔案
+          clean: true
